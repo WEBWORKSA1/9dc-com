@@ -1,0 +1,72 @@
+---
+layout: default
+title: "DC Fast Charging Explained: Power, Curves and Real Charge Times | 9DC"
+description: "How DC fast charging works, why a 350 kW charger rarely delivers 350 kW, why charging slows after 80%, and practical ways to cut your time at the plug."
+schema: '{"@context":"https://schema.org","@type":"Article","headline":"DC Fast Charging Explained: Power, Curves and Real Charge Times","author":{"@type":"Organization","name":"9DC Editorial"},"publisher":{"@type":"Organization","name":"9DC"},"datePublished":"2026-10-28","dateModified":"2026-10-28"}'
+---
+
+<section style="padding-top:44px"><div class="wrap article">
+<article class="prose">
+<div class="crumbs"><a href="/index.html">Home</a> / <a href="/guides/index.html">Guides</a> / DC fast charging</div>
+<span class="tag ev">EV</span>
+<h1>DC fast charging explained</h1>
+<p class="meta">9DC Editorial · Updated October 2026 · 9 min read</p>
+<p class="lead">A DC fast charger skips the car's onboard charger and feeds direct current straight into the battery. That is why it can add hundreds of kilometres in the time it takes to get a coffee — and why the number on the sign is a ceiling, not a promise.</p>
+
+<h2 id="ac-vs-dc">AC charging vs DC charging</h2>
+<p>Every EV battery stores energy as direct current. When you plug into a household outlet or a Level 2 wall box, the station supplies alternating current, and a converter inside the car — the <em>onboard charger</em> — turns it into DC. Onboard chargers are limited by size, weight and heat, so most top out between about 7 and 19 kW.</p>
+<p>A DC fast charger moves that conversion into a large cabinet beside the parking space. The cabinet can be far bigger and better cooled than anything that fits in a car, so it can deliver 50, 150, 350 kW or more. The car's battery management system (BMS) still decides how much it will accept at every moment.</p>
+<table><thead><tr><th>Level</th><th>Typical power</th><th>Roughly adds</th><th>Best for</th></tr></thead><tbody>
+<tr><td>Level 1 (120 V AC)</td><td>~1.4–1.9 kW</td><td>~5 miles per hour</td><td>Low-mileage drivers, overnight top-ups</td></tr>
+<tr><td>Level 2 (208–240 V AC)</td><td>~7–19 kW</td><td>~25 miles per hour</td><td>Home, work, destination charging</td></tr>
+<tr><td>DC fast</td><td>50–400+ kW</td><td>~100–200+ miles in 30 min</td><td>Road trips, drivers without home charging</td></tr>
+</tbody></table>
+<p>Figures follow the US Department of Energy's Alternative Fuels Data Center; your car's efficiency changes the miles.</p>
+
+<h2 id="power">Why you rarely see the full rated power</h2>
+<p>Charging power is simply voltage multiplied by current. A charger rated at 350 kW might reach that only at high voltage — for example, around 800 V × ~440 A. A car with a 400 V-class battery on the same charger is current-limited, so it might see roughly half the rated power. Four factors set the real number:</p>
+<ol>
+<li><strong>The car's maximum DC rate.</strong> If your car accepts 150 kW, a 350 kW charger cannot push more.</li>
+<li><strong>Battery voltage architecture.</strong> 800 V platforms can use high-power chargers far better than 400 V ones.</li>
+<li><strong>Battery temperature.</strong> Cold cells accept much less current. Navigating to a charger in the car's own system usually triggers preconditioning, which warms the pack on the way.</li>
+<li><strong>State of charge.</strong> The emptier the battery, the more current it can safely take.</li>
+</ol>
+<p>Some sites also share power between two stalls, so a neighbour plugging in can cut your rate. When a station offers a choice, pick an unshared stall or the highest-rated one.</p>
+
+<h2 id="curve">The charging curve and the 80% rule</h2>
+<p>Plot charging power against state of charge and you get the car's <em>charging curve</em>. Most curves share a shape: a quick ramp-up, a plateau at or near peak power through the low-to-middle range, then a steady taper. Above roughly 80% the taper becomes steep, because the BMS reduces current to keep cell voltage within limits and to avoid lithium plating on the anode.</p>
+<div class="callout"><b>Rule of thumb:</b> on many cars, going from 80% to 100% takes about as long as going from 10% to 80%. On a road trip it is usually faster to stop twice and charge 10–70% each time than to stop once and charge to 100%.</div>
+<p>Our <a href="/tools.html#t-fast">fast-charge calculator</a> models a generic curve so you can see this effect with your own pack size and target. Real curves differ by model — some cars hold peak power past 50%, others taper early — so treat the result as a planning estimate.</p>
+
+<h2 id="faster">Seven ways to cut time at the charger</h2>
+<ol>
+<li><strong>Arrive low.</strong> Plugging in at 10–20% keeps you on the fast part of the curve.</li>
+<li><strong>Precondition.</strong> Use the in-car navigation to the charger, especially below about 10 °C.</li>
+<li><strong>Leave around 70–80%.</strong> Unless the next leg truly needs more.</li>
+<li><strong>Choose higher-rated stalls</strong> when your car can use them, and avoid shared cabinets when a neighbour is charging.</li>
+<li><strong>Check the stall's real output</strong> in the car or app in the first minute. If it is far below expectation, move.</li>
+<li><strong>Plan for winter.</strong> Range and charging speed both drop in cold weather; plan 20–30% more energy per leg.</li>
+<li><strong>Charge at home for daily driving.</strong> DC fast charging is for trips; Level 2 at home is cheaper and easier on the battery.</li>
+</ol>
+
+<h2 id="cost">What DC fast charging costs</h2>
+<p>Public fast charging is priced per kWh in most places, sometimes per minute, often with membership plans that lower the rate. It typically costs two to three times as much as charging at home. A few cents per kWh matter less than how much of your charging happens on DC: use the <a href="/tools.html#t-cost">charging cost calculator</a> to see how your home/fast-charge split changes your monthly bill.</p>
+
+<h2 id="health">Does fast charging hurt the battery?</h2>
+<p>Modern battery management is designed for fast charging, and fleet data from large numbers of EVs suggests that ordinary use of DC fast charging has a modest effect on long-term capacity. What matters more is heat and time spent at very high or very low charge. Read our guide to <a href="/guides/ev-battery-health.html">EV battery health</a> for the practical version.</p>
+
+<h2 id="faq">Quick answers</h2>
+<h3>Is DC fast charging the same as "Level 3"?</h3>
+<p>Colloquially, yes. "Level 3" is common shorthand for DC fast charging, though the formal standards use different terms.</p>
+<h3>Can every EV DC fast charge?</h3>
+<p>Almost all highway-capable EVs can. Some plug-in hybrids and older small EVs cannot, or only at low power. Check your owner's manual for the maximum DC rate and connector.</p>
+<h3>Which plug does my car use?</h3>
+<p>It depends on region and model year. See <a href="/guides/connectors-nacs-ccs-chademo.html">NACS, CCS and CHAdeMO explained</a>.</p>
+<div class="callout warn"><b>Safety:</b> never use a damaged cable or connector, and never modify charging equipment. DC fast chargers operate at lethal voltages.</div>
+</article>
+<aside class="aside-sticky">
+<div class="card toc"><h4>On this page</h4><a href="#ac-vs-dc">AC vs DC</a><a href="#power">Rated vs real power</a><a href="#curve">The 80% rule</a><a href="#faster">Charge faster</a><a href="#cost">Cost</a><a href="#health">Battery health</a></div>
+<div class="card"><h3>Try it</h3><p>See your own charging curve and time.</p><a class="btn btn-primary btn-sm btn-block" style="margin-top:12px" href="/tools.html#t-fast">Fast-charge calculator</a></div>
+<div class="card"><h3>Home charger?</h3><p>Get quotes for a Level 2 install.</p><a class="btn btn-ghost btn-sm btn-block" style="margin-top:12px" href="/get-quote.html?type=ev-charger">Free quotes</a></div>
+</aside>
+</div></section>
