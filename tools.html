@@ -1,0 +1,161 @@
+---
+layout: default
+title: "9 Free DC Power Calculators — EV Charging, Solar, Batteries & Wiring | 9DC"
+description: "Nine free calculators for direct-current power: DC fast-charge time, charging cost, road-trip stops, solar size, solar payback, battery bank, power-station runtime, wire gauge and Ohm's law."
+---
+
+<section class="page-hero"><div class="wrap"><span class="eyebrow">The 9DC toolkit</span><h1>Nine calculators for the DC side of energy</h1>
+<p class="lead">Every tool runs in your browser, updates as you type and shows the assumptions it uses. No sign-up. When you want real prices, one click carries your result into a free quote request.</p></div></section>
+
+<section><div class="wrap">
+<div class="tool-tabs" role="tablist" aria-label="Calculators">
+<button class="on" data-tool="t-fast" role="tab" aria-selected="true"><b>01</b>Fast-charge time</button>
+<button data-tool="t-cost" role="tab"><b>02</b>Charging cost</button>
+<button data-tool="t-trip" role="tab"><b>03</b>Road-trip stops</button>
+<button data-tool="t-solar" role="tab"><b>04</b>Solar sizer</button>
+<button data-tool="t-roi" role="tab"><b>05</b>Solar payback</button>
+<button data-tool="t-bank" role="tab"><b>06</b>Battery bank</button>
+<button data-tool="t-run" role="tab"><b>07</b>Runtime</button>
+<button data-tool="t-wire" role="tab"><b>08</b>Wire gauge</button>
+<button data-tool="t-ohm" role="tab"><b>09</b>Ohm's law</button>
+</div>
+
+<!-- 01 FAST -->
+<div class="tool on" id="t-fast" role="tabpanel">
+<div class="inputs"><span class="tag ev">EV</span><h2>DC fast-charge time</h2><p class="help">Models a typical lithium-ion charging curve: full power to ~50%, tapering after, steep above 80%.</p>
+<div class="row"><div class="field"><label for="f-kwh">Usable battery (kWh)</label><input id="f-kwh" type="number" value="77" min="10" max="250" step="1"></div><div class="field"><label for="f-eff">Efficiency (mi/kWh)</label><input id="f-eff" type="number" value="3.3" min="1" max="6" step="0.1"></div></div>
+<div class="field"><label for="f-start">Start state of charge</label><div class="range-row"><input id="f-start" type="range" min="0" max="95" value="10" data-unit="%"><output></output></div></div>
+<div class="field"><label for="f-end">Target state of charge</label><div class="range-row"><input id="f-end" type="range" min="5" max="100" value="80" data-unit="%"><output></output></div></div>
+<div class="row"><div class="field"><label for="f-chg">Charger rating (kW)</label><select id="f-chg"><option value="50">50 kW</option><option value="100">100 kW</option><option value="150" selected>150 kW</option><option value="250">250 kW</option><option value="350">350 kW</option><option value="400">400 kW</option></select></div>
+<div class="field"><label for="f-car">Car's max DC rate (kW)</label><input id="f-car" type="number" value="175" min="20" max="500" step="5"></div></div>
+<div class="field"><label for="f-temp">Battery temperature</label><select id="f-temp"><option value="1">Warm / preconditioned</option><option value="0.8">Mild (10–20 °C)</option><option value="0.55">Cold, not preconditioned</option></select></div>
+</div>
+<div class="out" aria-live="polite"><div class="lbl">Time on the charger</div><div class="big" id="fast-time">—</div><div class="bar"><i id="fast-bar"></i></div>
+<svg id="fastCurve" class="curve" viewBox="0 0 300 100" preserveAspectRatio="none" aria-label="Charging power versus state of charge" role="img"><line x1="150" y1="0" x2="150" y2="100"/><line x1="240" y1="0" x2="240" y2="100"/><path id="fcSeg" class="area"/><path id="fcAll" class="ln"/></svg>
+<p class="help mono" style="display:flex;justify-content:space-between;margin:2px 0 0"><span>0%</span><span>50%</span><span>80%</span><span>100%</span></p>
+<dl class="kv"><dt>Energy into battery</dt><dd id="fast-kwh">—</dd><dt>Energy from charger</dt><dd id="fast-grid">—</dd><dt>Average power</dt><dd id="fast-avg">—</dd><dt>Range added</dt><dd id="fast-range">—</dd></dl>
+<div class="verdict" id="fast-verdict"></div>
+<div class="tool-cta"><a class="btn btn-primary btn-sm" id="fast-q" href="/get-quote.html?type=ev-charger">Get a home-charger install quote</a><a class="btn btn-ghost btn-sm" href="/guides/dc-fast-charging-explained.html">How the curve works</a></div></div>
+</div>
+
+<!-- 02 COST -->
+<div class="tool" id="t-cost" role="tabpanel">
+<div class="inputs"><span class="tag ev">EV</span><h2>Charging cost vs gas</h2><p class="help">Includes charging losses: ~12% at home (AC), ~7% on DC fast chargers.</p>
+<div class="row"><div class="field"><label for="c-miles">Miles per month</label><input id="c-miles" type="number" value="1100" min="0" step="50"></div><div class="field"><label for="c-eff">EV efficiency (mi/kWh)</label><input id="c-eff" type="number" value="3.4" min="1" max="6" step="0.1"></div></div>
+<div class="row"><div class="field"><label for="c-home">Home rate ($/kWh)</label><input id="c-home" type="number" value="0.18" min="0" step="0.01"></div><div class="field"><label for="c-dcfc">DC fast rate ($/kWh)</label><input id="c-dcfc" type="number" value="0.48" min="0" step="0.01"></div></div>
+<div class="field"><label for="c-share">Share of charging on DC fast</label><div class="range-row"><input id="c-share" type="range" min="0" max="100" value="20" data-unit="%"><output></output></div></div>
+<div class="field"><label for="c-fee">Session / idle fees per fast-charge stop ($)</label><input id="c-fee" type="number" value="0" min="0" step="0.5"></div>
+<div class="row"><div class="field"><label for="c-gas">Gas price ($/gal)</label><input id="c-gas" type="number" value="3.20" min="0" step="0.05"></div><div class="field"><label for="c-mpg">Comparable gas car (mpg)</label><input id="c-mpg" type="number" value="30" min="1" step="1"></div></div>
+<p class="help">US average residential electricity was about 17.3¢/kWh in 2025 (EIA). Use your own bill's rate for accuracy.</p></div>
+<div class="out" aria-live="polite"><div class="lbl">Your EV charging cost</div><div class="big" id="cost-month">—</div><div class="bar"><i id="cost-bar"></i></div><p class="help">Bar = EV cost as a share of the gas cost.</p>
+<dl class="kv"><dt>Same miles on gas</dt><dd id="cost-gas">—</dd><dt>Yearly savings</dt><dd id="cost-save">—</dd><dt>Cost per mile</dt><dd id="cost-mile">—</dd><dt>100% home charging</dt><dd id="cost-homeonly">—</dd><dt>100% DC fast</dt><dd id="cost-dconly">—</dd></dl>
+<div class="verdict" id="cost-verdict"></div>
+<div class="tool-cta"><a class="btn btn-primary btn-sm" id="cost-q" href="/get-quote.html?type=ev-charger">Quote a Level 2 home charger</a></div></div>
+</div>
+
+<!-- 03 TRIP -->
+<div class="tool" id="t-trip" role="tabpanel">
+<div class="inputs"><span class="tag ev">EV</span><h2>Road-trip charging stops</h2><p class="help">Estimates stops and time on chargers for a highway trip. Cut efficiency by 20–30% for winter driving.</p>
+<div class="row"><div class="field"><label for="r-dist">Trip distance (miles)</label><input id="r-dist" type="number" value="420" min="1" step="10"></div><div class="field"><label for="r-eff">Highway efficiency (mi/kWh)</label><input id="r-eff" type="number" value="3.0" min="1" max="6" step="0.1"></div></div>
+<div class="row"><div class="field"><label for="r-kwh">Usable battery (kWh)</label><input id="r-kwh" type="number" value="77" min="10" step="1"></div><div class="field"><label for="r-kw">Charger / car peak (kW)</label><input id="r-kw" type="number" value="150" min="20" step="10"></div></div>
+<div class="field"><label for="r-start">Departure charge</label><div class="range-row"><input id="r-start" type="range" min="20" max="100" value="95" data-unit="%"><output></output></div></div>
+<div class="field"><label for="r-buf">Arrive at each charger with</label><div class="range-row"><input id="r-buf" type="range" min="5" max="40" value="10" data-unit="%"><output></output></div></div>
+<div class="field"><label for="r-to">Charge each stop to</label><div class="range-row"><input id="r-to" type="range" min="40" max="100" value="75" data-unit="%"><output></output></div></div>
+<div class="field"><label for="r-speed">Average driving speed (mph)</label><input id="r-speed" type="number" value="65" min="20" max="90"></div></div>
+<div class="out" aria-live="polite"><div class="lbl">Charging stops</div><div class="big" id="trip-stops">—</div><div class="bar"><i id="trip-bar"></i></div><p class="help">Bar = charging time as a share of total trip time.</p>
+<dl class="kv"><dt>Time charging (incl. 6 min/stop)</dt><dd id="trip-chg">—</dd><dt>Time driving</dt><dd id="trip-drive">—</dd><dt>Total trip</dt><dd id="trip-total">—</dd><dt>Energy needed</dt><dd id="trip-energy">—</dd><dt>Range per leg</dt><dd id="trip-leg">—</dd></dl>
+<div class="verdict" id="trip-verdict"></div>
+<div class="tool-cta"><a class="btn btn-ghost btn-sm" href="/guides/connectors-nacs-ccs-chademo.html">Which plug will I find?</a></div></div>
+</div>
+
+<!-- 04 SOLAR -->
+<div class="tool" id="t-solar" role="tabpanel">
+<div class="inputs"><span class="tag solar">Solar</span><h2>Solar system sizer</h2><p class="help">Sizes the DC array that offsets your usage. Production uses peak sun hours × array kW × (1 − losses).</p>
+<div class="row"><div class="field"><label for="s-use">Electricity use (kWh/month)</label><input id="s-use" type="number" value="900" min="50" step="10"></div><div class="field"><label for="s-off">Offset target (%)</label><input id="s-off" type="number" value="100" min="10" max="150" step="5"></div></div>
+<div class="row"><div class="field"><label for="s-region">Region preset</label><select id="s-region"><option value="">Choose…</option><option value="6.5">Arizona / desert SW (6.5)</option><option value="5.6">California (5.6)</option><option value="5.5">Colorado (5.5)</option><option value="5.3">Texas / Florida (5.3)</option><option value="4.3">Midwest e.g. Illinois (4.3)</option><option value="4.2">New England (4.2)</option><option value="4.0">New York / Ontario / Québec (4.0)</option><option value="3.8">Pacific Northwest (3.8)</option><option value="5.5">India plains (~5.5)</option><option value="5.0">Global average (~5.0)</option></select></div>
+<div class="field"><label for="s-psh">Peak sun hours / day</label><input id="s-psh" type="number" value="4.5" min="1" max="8" step="0.1"></div></div>
+<div class="row"><div class="field"><label for="s-loss">System losses (%)</label><input id="s-loss" type="number" value="14" min="0" max="40" step="1"></div><div class="field"><label for="s-pw">Panel rating (W)</label><input id="s-pw" type="number" value="430" min="100" max="700" step="5"></div></div>
+<div class="field"><label for="s-cpw">Installed cost ($ per watt, before incentives)</label><input id="s-cpw" type="number" value="2.60" min="0.5" max="6" step="0.05"></div></div>
+<div class="out" aria-live="polite"><div class="lbl">Recommended array (DC)</div><div class="big" id="solar-kw">—</div><div class="bar"><i id="solar-bar"></i></div><p class="help">Bar = share of annual use covered.</p>
+<dl class="kv"><dt>Panels</dt><dd id="solar-panels">—</dd><dt>Roof area (approx.)</dt><dd id="solar-area">—</dd><dt>Target energy</dt><dd id="solar-daily">—</dd><dt>Annual production</dt><dd id="solar-prod">—</dd><dt>Installed cost</dt><dd id="solar-cost">—</dd></dl>
+<div class="verdict" id="solar-verdict"></div>
+<div class="tool-cta"><a class="btn btn-primary btn-sm" id="solar-q" href="/get-quote.html?type=solar">Get solar quotes for this size</a><a class="btn btn-ghost btn-sm" href="/tools.html#t-roi">Check payback →</a></div></div>
+</div>
+
+<!-- 05 ROI -->
+<div class="tool" id="t-roi" role="tabpanel">
+<div class="inputs"><span class="tag solar">Solar</span><h2>Solar payback &amp; 25-year savings</h2><p class="help">Year-by-year model with panel degradation and electricity-price escalation. Enter only incentives that actually apply where you live.</p>
+<div class="row"><div class="field"><label for="p-cost">System price ($)</label><input id="p-cost" type="number" value="20000" min="0" step="500"></div><div class="field"><label for="p-inc">Rebates / credits (% of price)</label><input id="p-inc" type="number" value="0" min="0" max="80" step="1"></div></div>
+<div class="row"><div class="field"><label for="p-prod">Year-1 production (kWh)</label><input id="p-prod" type="number" value="10500" min="0" step="100"></div><div class="field"><label for="p-rate">Electricity rate ($/kWh)</label><input id="p-rate" type="number" value="0.18" min="0" step="0.01"></div></div>
+<div class="row"><div class="field"><label for="p-esc">Rate increase per year (%)</label><input id="p-esc" type="number" value="3" min="0" max="10" step="0.5"></div><div class="field"><label for="p-deg">Panel degradation per year (%)</label><input id="p-deg" type="number" value="0.5" min="0" max="2" step="0.1"></div></div>
+<div class="row"><div class="field"><label for="p-val">Value per kWh vs retail (%)</label><input id="p-val" type="number" value="100" min="10" max="100" step="5"><p class="help">Lower this if exports earn less than retail.</p></div><div class="field"><label for="p-om">Maintenance per year ($)</label><input id="p-om" type="number" value="100" min="0" step="25"></div></div></div>
+<div class="out" aria-live="polite"><div class="lbl">Simple payback</div><div class="big" id="roi-pay">—</div><div class="bar"><i id="roi-bar"></i></div><p class="help">Bar = payback as a share of a 25-year life.</p>
+<dl class="kv"><dt>Net cost</dt><dd id="roi-net">—</dd><dt>Year-1 savings</dt><dd id="roi-y1">—</dd><dt>25-year net gain</dt><dd id="roi-25">—</dd><dt>25-year ROI</dt><dd id="roi-pct">—</dd><dt>Lifetime cost of power</dt><dd id="roi-lcoe">—</dd></dl>
+<div class="verdict" id="roi-verdict"></div>
+<div class="tool-cta"><a class="btn btn-primary btn-sm" id="roi-q" href="/get-quote.html?type=solar">Compare installer quotes</a></div></div>
+</div>
+
+<!-- 06 BANK -->
+<div class="tool" id="t-bank" role="tabpanel">
+<div class="inputs"><span class="tag batt">Battery</span><h2>Battery bank sizer</h2><p class="help">For off-grid cabins, RVs, vans, boats and backup systems.</p>
+<div class="row"><div class="field"><label for="b-wh">Daily energy use (Wh)</label><input id="b-wh" type="number" value="2400" min="10" step="50"></div><div class="field"><label for="b-days">Days of autonomy</label><input id="b-days" type="number" value="1.5" min="0.5" max="7" step="0.5"></div></div>
+<div class="row"><div class="field"><label for="b-v">System voltage</label><select id="b-v"><option value="12">12 V</option><option value="24" selected>24 V</option><option value="48">48 V</option></select></div>
+<div class="field"><label for="b-chem">Chemistry (usable depth)</label><select id="b-chem"><option value="0.9">LiFePO4 (90%)</option><option value="0.8">NMC lithium (80%)</option><option value="0.5">AGM / gel lead-acid (50%)</option><option value="0.5">Flooded lead-acid (50%)</option></select></div></div>
+<div class="row"><div class="field"><label for="b-inv">Inverter efficiency (%)</label><input id="b-inv" type="number" value="90" min="70" max="99"></div>
+<div class="field"><label for="b-temp">Coldest battery temp</label><select id="b-temp"><option value="1">Above 10 °C</option><option value="0.85">0–10 °C</option><option value="0.7">Below 0 °C (heated pack)</option></select></div></div>
+<div class="field"><label for="b-peak">Largest continuous inverter load (W)</label><input id="b-peak" type="number" value="2000" min="0" step="100"></div></div>
+<div class="out" aria-live="polite"><div class="lbl">Nominal bank size</div><div class="big" id="bank-kwh">—</div><div class="bar"><i id="bank-bar"></i></div><p class="help">Bar = battery current vs a 300 A practical ceiling.</p>
+<dl class="kv"><dt>Capacity</dt><dd id="bank-ah">—</dd><dt>Usable energy needed</dt><dd id="bank-usable">—</dd><dt>Equivalent</dt><dd id="bank-n">—</dd><dt>Peak battery current</dt><dd id="bank-amps">—</dd></dl>
+<div class="verdict" id="bank-verdict"></div>
+<div class="tool-cta"><a class="btn btn-primary btn-sm" id="bank-q" href="/get-quote.html?type=battery">Get a battery system quote</a><a class="btn btn-ghost btn-sm" href="/tools.html#t-wire">Size the cables →</a></div></div>
+</div>
+
+<!-- 07 RUNTIME -->
+<div class="tool" id="t-run" role="tabpanel">
+<div class="inputs"><span class="tag batt">Battery</span><h2>Power-station runtime</h2><p class="help">How long a portable power station or battery runs your devices. Tap items to add their typical watts.</p>
+<div class="row"><div class="field"><label for="u-wh">Rated capacity (Wh)</label><input id="u-wh" type="number" value="1024" min="50" step="1"></div><div class="field"><label for="u-dod">Usable capacity (%)</label><input id="u-dod" type="number" value="90" min="50" max="100"></div></div>
+<div class="row"><div class="field"><label for="u-eff">Output type</label><select id="u-eff"><option value="0.85">AC outlets (inverter ~85%)</option><option value="0.95">DC / USB outputs (~95%)</option></select></div><div class="field"><label for="u-max">Inverter rating (W)</label><input id="u-max" type="number" value="1800" min="50" step="50"></div></div>
+<div class="field"><label for="u-w">Total running load (W)</label><input id="u-w" type="number" value="150" min="0" step="5"></div>
+<div class="choice-grid" style="grid-template-columns:repeat(auto-fit,minmax(110px,1fr))">
+<button type="button" class="btn btn-ghost btn-sm" data-add-w="60">+ Fridge (avg 60 W)</button><button type="button" class="btn btn-ghost btn-sm" data-add-w="40">+ CPAP 40 W</button><button type="button" class="btn btn-ghost btn-sm" data-add-w="60">+ Laptop 60 W</button><button type="button" class="btn btn-ghost btn-sm" data-add-w="12">+ Router 12 W</button><button type="button" class="btn btn-ghost btn-sm" data-add-w="20">+ LED lights 20 W</button><button type="button" class="btn btn-ghost btn-sm" data-add-w="100">+ TV 100 W</button><button type="button" class="btn btn-ghost btn-sm" data-add-w="1000">+ Microwave 1000 W</button><button type="button" class="btn btn-ghost btn-sm" id="u-reset">Reset to 0</button></div>
+<div class="row"><div class="field"><label for="u-pv">Solar panel input (W)</label><input id="u-pv" type="number" value="200" min="0" step="10"></div><div class="field"><label for="u-psh">Peak sun hours</label><input id="u-psh" type="number" value="4.5" min="1" max="8" step="0.1"></div></div></div>
+<div class="out" aria-live="polite"><div class="lbl">Estimated runtime</div><div class="big" id="run-h">—</div><div class="bar"><i id="run-bar"></i></div><p class="help">Bar = load vs inverter rating.</p>
+<dl class="kv"><dt>Usable energy</dt><dd id="run-usable">—</dd><dt>In days</dt><dd id="run-days">—</dd><dt>Solar recharge (75% real-world)</dt><dd id="run-recharge">—</dd></dl>
+<div class="verdict" id="run-verdict"></div>
+<div class="tool-cta"><a class="btn btn-ghost btn-sm" href="/guides/lifepo4-batteries-guide.html">LiFePO4 buyer's guide</a></div></div>
+</div>
+
+<!-- 08 WIRE -->
+<div class="tool" id="t-wire" role="tabpanel">
+<div class="inputs"><span class="tag wire">Wiring</span><h2>DC wire gauge &amp; voltage drop</h2><p class="help">Picks the smallest AWG that meets both your voltage-drop limit and a 125% continuous-current ampacity check.</p>
+<div class="row"><div class="field"><label for="w-v">System voltage (V)</label><select id="w-v"><option>12</option><option>24</option><option>36</option><option>48</option><option value="120">120 (PV string)</option><option value="400">400 (PV string)</option></select></div><div class="field"><label for="w-a">Current (A)</label><input id="w-a" type="number" value="40" min="0.1" step="1"></div></div>
+<div class="row"><div class="field"><label for="w-len">One-way length (ft)</label><input id="w-len" type="number" value="12" min="0.5" step="0.5"><p class="help">1 m ≈ 3.28 ft. Round trip is calculated for you.</p></div><div class="field"><label for="w-drop">Max voltage drop (%)</label><select id="w-drop"><option value="2">2% (charging, sensitive loads)</option><option value="3" selected>3% (recommended)</option><option value="5">5% (lighting, non-critical)</option><option value="10">10% (absolute max)</option></select></div></div>
+<div class="field"><label for="w-mat">Conductor</label><select id="w-mat"><option value="12.9">Copper</option><option value="21.2">Aluminium</option></select></div>
+<div class="callout warn"><b>Safety:</b> lithium banks can deliver thousands of amps into a short. Fuse every positive conductor at the source, use crimped lugs and heat-shrink, and follow your local electrical code.</div></div>
+<div class="out" aria-live="polite"><div class="lbl">Minimum wire size</div><div class="big" id="wire-awg">—</div><div class="bar"><i id="wire-bar"></i></div><p class="help">Bar = actual drop vs your limit.</p>
+<dl class="kv"><dt>Metric equivalent</dt><dd id="wire-mm">—</dd><dt>Actual voltage drop</dt><dd id="wire-drop">—</dd><dt>Heat lost in cable</dt><dd id="wire-loss">—</dd><dt>Suggested fuse</dt><dd id="wire-fuse">—</dd><dt>Required area</dt><dd id="wire-cm">—</dd></dl>
+<div class="verdict" id="wire-verdict"></div>
+<div class="tool-cta"><a class="btn btn-ghost btn-sm" href="/guides/dc-wiring-safety.html">DC wiring safety guide</a></div></div>
+</div>
+
+<!-- 09 OHM -->
+<div class="tool" id="t-ohm" role="tabpanel">
+<div class="inputs"><span class="tag">Basics</span><h2>Ohm's law &amp; DC power</h2><p class="help">Enter any two of voltage, current, resistance or power. V = I × R and P = V × I.</p>
+<div class="row"><div class="field"><label for="o-v">Voltage (V)</label><input id="o-v" type="number" step="any" value="12"></div><div class="field"><label for="o-i">Current (A)</label><input id="o-i" type="number" step="any" value="5"></div></div>
+<div class="row"><div class="field"><label for="o-r">Resistance (Ω)</label><input id="o-r" type="number" step="any"></div><div class="field"><label for="o-p">Power (W)</label><input id="o-p" type="number" step="any"></div></div>
+<div class="field"><label for="o-h">Run time (hours) — for energy</label><input id="o-h" type="number" step="any" value="3"></div>
+<div class="tool-cta"><button class="btn btn-primary btn-sm" id="o-go" type="button">Solve</button><button class="btn btn-ghost btn-sm" id="o-clear" type="button">Clear</button></div></div>
+<div class="out" aria-live="polite"><div class="lbl">Results</div><p id="ohm-msg" class="help">Enter any two values.</p>
+<dl class="kv"><dt>Voltage</dt><dd id="ohm-v">—</dd><dt>Current</dt><dd id="ohm-i">—</dd><dt>Resistance</dt><dd id="ohm-r">—</dd><dt>Power</dt><dd id="ohm-p">—</dd><dt>Energy over run time</dt><dd id="ohm-wh">—</dd></dl>
+<div class="verdict">Rule of thumb: at the same power, doubling the voltage halves the current — and cuts cable heat (I²R) to a quarter. That is why bigger DC systems move to 48 V and EV packs run at 400–800 V.</div></div>
+</div>
+</div></section>
+
+<section class="section-alt"><div class="wrap">
+<div class="band"><div><h2>Calculated it? Now price it.</h2><p>Tell us about your solar, battery or EV-charger project and we connect you with qualified installers and suppliers. Free, no obligation.</p></div><div><a class="btn btn-primary btn-block" href="/get-quote.html">Get free quotes</a></div></div>
+<h2 style="margin-top:48px">How these calculators work</h2>
+<div class="grid g3" style="margin-top:16px">
+<div class="card"><h3>Transparent assumptions</h3><p>Every default comes from public sources (US DOE AFDC, fueleconomy.gov, NREL PVWatts, EIA, Battery University). Change any input to match your situation.</p></div>
+<div class="card"><h3>Estimates, not sign-off</h3><p>Real charging curves vary by car and temperature; real solar output varies by shading and tilt. Use results for planning, then confirm with a qualified installer.</p></div>
+<div class="card"><h3>Private by design</h3><p>All maths runs in your browser. Nothing you type into a calculator is sent anywhere unless you choose to request a quote.</p></div>
+</div></div></section>
