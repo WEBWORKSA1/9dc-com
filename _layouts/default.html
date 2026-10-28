@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ page.title | escape }}</title>
+<meta name="description" content="{{ page.description | escape }}">
+<link rel="canonical" href="{{ site.url }}{{ page.url | replace: "index.html", "" }}">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#07090d">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="9DC — Direct Current, Decoded">
+<meta property="og:title" content="{{ page.title | escape }}">
+<meta property="og:description" content="{{ page.description | escape }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url | replace: "index.html", "" }}">
+<meta property="og:image" content="https://9dc.com/assets/img/og.svg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6620975821265271" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"9DC","alternateName":"9DC — Direct Current, Decoded","url":"https://9dc.com/"}</script>
+{% if page.schema %}<script type="application/ld+json">{{ page.schema }}</script>{% endif %}
+</head><body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="topbar" role="note"><span>Contact, if you are interested in this website/domain name/Sponsorship/Advertisement/Partnership</span> <a href="https://web.works/contact" target="_blank" rel="noopener">web.works/contact →</a></div>
+<header class="site"><div class="wrap nav">
+<a class="logo" href="/index.html" aria-label="9DC home"><span class="badge"><b>9</b>DC</span><span class="logo-txt">Direct Current, Decoded</span></a>
+<ul class="menu" id="menu">
+<li><a href="/tools.html">9 Tools</a></li>
+<li><a href="/guides/index.html">Guides</a></li>
+<li><a href="/videos.html">Videos</a></li>
+<li><a href="/glossary.html">Glossary</a></li>
+<li><a href="/contest.html">Contest</a></li>
+<li><a href="/support.html">Support</a></li>
+<li class="menu-cta"><a href="/get-quote.html">Get Quotes</a></li>
+</ul>
+<div class="nav-cta"><a class="btn btn-primary btn-sm" href="/get-quote.html">Free Quotes</a>
+<button class="icon-btn" id="themeBtn" aria-label="Toggle light or dark theme">◐</button>
+<button class="icon-btn burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">☰</button></div>
+</div></header>
+<main id="main">
+{{ content }}
+</main>
+<footer class="site"><div class="wrap">
+<div class="foot-grid">
+<div class="foot-brand"><a class="logo" href="/index.html"><span class="badge"><b>9</b>DC</span><span class="logo-txt">Direct Current, Decoded</span></a>
+<p>Free calculators and plain-English guides for the direct-current side of energy: EV fast charging, solar PV and battery storage.</p>
+<form class="js-form inline-form" data-subject="Newsletter signup" data-ok="You're in. The DC Brief lands every other Thursday.">
+<input type="email" name="email" required placeholder="you@email.com" aria-label="Email for the DC Brief newsletter"><input class="hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+<input type="hidden" name="list" value="DC Brief newsletter"><button class="btn btn-primary btn-sm" type="submit">Subscribe</button><div class="form-msg" role="status"></div></form></div>
+<div><h4>Tools</h4><ul><li><a href="/tools.html#t-fast">Fast-charge time</a></li><li><a href="/tools.html#t-cost">Charging cost</a></li><li><a href="/tools.html#t-solar">Solar sizer</a></li><li><a href="/tools.html#t-bank">Battery bank</a></li><li><a href="/tools.html#t-wire">Wire gauge</a></li></ul></div>
+<div><h4>Learn</h4><ul><li><a href="/guides/index.html">All guides</a></li><li><a href="/videos.html">Video library</a></li><li><a href="/glossary.html">DC glossary</a></li><li><a href="/resources.html">Resources</a></li></ul></div>
+<div><h4>Get involved</h4><ul><li><a href="/get-quote.html">Get free quotes</a></li><li><a href="/contest.html">Build contest</a></li><li><a href="/careers.html">Careers &amp; talent</a></li><li><a href="/support.html">Support 9DC</a></li><li><a href="/advertise.html">Advertise</a></li></ul></div>
+<div><h4>Company</h4><ul><li><a href="/about.html">About</a></li><li><a href="/contact.html">Contact</a></li><li><a href="https://web.works/contact" target="_blank" rel="noopener">Buy / partner</a></li><li><a href="/privacy.html">Privacy</a></li><li><a href="/terms.html">Terms</a></li><li><a href="/disclaimer.html">Disclaimer</a></li><li><a href="/cookies.html">Cookies</a></li><li><a href="/trademark.html">Trademark</a></li></ul></div>
+</div>
+<div class="legal">
+<p><b>Trademark &amp; copyright disclosure:</b> “9DC” is used on this site only as a domain-name identifier, and “DC” is used in its generic technical sense of <em>direct current</em>. No exclusive rights are claimed in the letters or numbers “9”, “DC” or “9DC”. This site is not affiliated with, endorsed by or sponsored by DC Comics, the District of Columbia government, any data-center operator, or any company, product or person using a similar name. All other names, logos and trademarks (including vehicle, charging-network and connector names) belong to their respective owners and are used for identification only. <a href="/trademark.html">Full disclosure</a>.</p>
+<p>Calculators give estimates for education, not engineering sign-off. High-voltage DC work must be done by qualified, licensed people. Some pages show advertising served by Google AdSense. © <span class="year">2026</span> 9DC.com — original text, tools and design.</p>
+</div></div></footer>
+<div class="mcta"><a class="btn btn-ghost" href="/tools.html">9 Tools</a><a class="btn btn-primary" href="/get-quote.html">Free Quotes</a></div>
+<div class="cookie" id="cookie" role="dialog" aria-label="Cookie notice"><p>We use essential storage and, with your consent, cookies from Google to show and measure ads. See our <a href="/cookies.html">Cookie Policy</a>.</p>
+<div class="acts"><button class="btn btn-primary btn-sm" data-cookie="all">Accept</button><button class="btn btn-ghost btn-sm" data-cookie="essential">Essential only</button></div></div>
+<script src="/assets/js/main.js" defer></script>
+</body></html>
