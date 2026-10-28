@@ -1,0 +1,47 @@
+---
+layout: default
+title: "DC Build of the Month Contest — Solar, Battery & EV Builds | 9DC"
+description: "Enter 9DC's monthly DC Build Contest: share your solar array, battery bank, van or RV power system or home EV charger install for a chance to win prizes."
+---
+
+<section class="page-hero"><div class="wrap grid g2" style="align-items:center"><div><span class="eyebrow">Monthly contest</span><h1>DC Build of the Month</h1>
+<p class="lead">Built something on direct current? A solar shed, a van electrical system, a whole-home battery, a tidy home-charger install? Show it off. Each month our judges pick winners across three categories.</p>
+<a class="btn btn-primary" href="#enter">Enter this month</a></div>
+<div class="card" style="text-align:center"><div class="lbl mono" style="color:var(--muted);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase">Entries for <span id="contestMonth">this month</span> close in</div><div class="countdown" id="contestCountdown">—</div><p class="meta">Deadline: <span id="contestDate"></span></p></div>
+</div></section>
+
+<section><div class="wrap">
+<h2>Categories &amp; prizes</h2>
+<div class="grid g3" style="margin-top:16px">
+<div class="card tier featured"><span class="ribbon">GRAND PRIZE</span><h3>Best Overall Build</h3><div class="price">$250</div><ul><li>Featured case study on 9DC</li><li>Winner badge for your social profiles</li></ul></div>
+<div class="card tier"><h3>Best Budget Build</h3><div class="price">$100</div><ul><li>Most capability per dollar</li><li>Feature in the DC Brief</li></ul></div>
+<div class="card tier"><h3>Cleanest Wiring</h3><div class="price">$100</div><ul><li>Neat, fused, labelled, code-minded</li><li>Feature in the DC Brief</li></ul></div>
+</div>
+<p class="notice">Prize amounts are funded by supporters and sponsors and are confirmed on this page at the start of each month. Want to fund a prize? <a href="/advertise.html">Sponsor the contest</a>.</p>
+</div></section>
+
+<section class="section-alt"><div class="wrap grid g2" style="align-items:start">
+<div><h2>How judging works</h2>
+<ol class="timeline" style="margin-top:18px">
+<li><b>Safety (30%)</b><span>Proper fusing, cable sizing, ventilation and enclosures. Unsafe builds are not eligible.</span></li>
+<li><b>Design &amp; documentation (30%)</b><span>A clear parts list, diagram and the numbers behind your choices.</span></li>
+<li><b>Value (20%)</b><span>Capability for the money and smart re-use.</span></li>
+<li><b>Craft &amp; story (20%)</b><span>Workmanship, photos and what you learned.</span></li>
+</ol>
+<h3 style="margin-top:20px">Rules in brief</h3>
+<ul style="color:var(--muted);padding-left:18px"><li>Free to enter; no purchase necessary. One entry per person per month.</li><li>You must own the photos and the build (or have permission).</li><li>Entrants must be 18+ and the contest is void where prohibited.</li><li>Work on mains or high-voltage DC must be done or inspected by a qualified person where your local law requires.</li><li>By entering you allow 9DC to feature your photos and description with credit. You keep ownership.</li><li>Winners are announced in the first week of the following month and contacted by email; prizes are paid by digital transfer.</li></ul>
+<p class="notice">Full terms: see our <a href="/terms.html">Terms of Use</a>.</p></div>
+
+<div class="form-card" id="enter"><h2 style="font-size:1.5rem">Submit your build</h2>
+<form class="js-form" data-subject="CONTEST entry" data-ok="Entry received! We'll confirm by email and may ask for photos.">
+<div class="field"><label for="ce-cat">Category</label><select id="ce-cat" name="category" required><option value="">Select…</option><option>Best Overall Build</option><option>Best Budget Build</option><option>Cleanest Wiring</option></select></div>
+<div class="field"><label for="ce-type">Build type</label><select id="ce-type" name="build_type" required><option value="">Select…</option><option>Home solar</option><option>Off-grid cabin / shed</option><option>Van / RV / boat</option><option>Home battery backup</option><option>Portable / DIY power station</option><option>Home EV charger install</option><option>Other DC project</option></select></div>
+<div class="field"><label for="ce-title">Build title</label><input id="ce-title" name="build_title" required maxlength="90"></div>
+<div class="field"><label for="ce-desc">Describe it: specs, parts, cost, what you learned</label><textarea id="ce-desc" name="description" required minlength="80" maxlength="3000"></textarea></div>
+<div class="field"><label for="ce-link">Link to photos / video (Google Drive, Imgur, YouTube…)</label><input id="ce-link" name="photo_link" type="url" required placeholder="https://"></div>
+<div class="row"><div class="field"><label for="ce-name">Name</label><input id="ce-name" name="name" required autocomplete="name"></div><div class="field"><label for="ce-email">Email</label><input id="ce-email" name="email" type="email" required autocomplete="email"></div></div>
+<div class="field"><label for="ce-country">Country</label><input id="ce-country" name="country" required autocomplete="country-name"></div>
+<input class="hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+<div class="field"><label class="check"><input type="checkbox" name="age_rules" value="yes" required> <span>I am 18 or older, I own this build and the photos, and I accept the contest rules.</span></label></div>
+<button class="btn btn-primary btn-block" type="submit">Submit my entry</button><div class="form-msg" role="status"></div></form></div>
+</div></section>
