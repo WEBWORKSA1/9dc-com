@@ -1,0 +1,4 @@
+title: "9DC — Direct Current, Decoded"
+url: "https://9dc.com"
+baseurl: ""
+exclude: [README.md, BUILD-PROMPTS.md, RESEARCH.md]
