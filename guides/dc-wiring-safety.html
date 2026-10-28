@@ -1,0 +1,40 @@
+---
+layout: default
+title: "Low-Voltage DC Wiring: Cable Size, Voltage Drop, Fuses & Safety | 9DC"
+description: "How to size DC cables, keep voltage drop under 3%, choose and place fuses, and avoid the most common mistakes in 12 V, 24 V and 48 V battery systems."
+schema: '{"@context":"https://schema.org","@type":"Article","headline":"Low-Voltage DC Wiring: Cable Size, Voltage Drop, Fuses and Safety","author":{"@type":"Organization","name":"9DC Editorial"},"publisher":{"@type":"Organization","name":"9DC"},"datePublished":"2026-10-28"}'
+---
+
+<section style="padding-top:44px"><div class="wrap article">
+<article class="prose">
+<div class="crumbs"><a href="/index.html">Home</a> / <a href="/guides/index.html">Guides</a> / DC wiring</div>
+<span class="tag wire">Wiring</span>
+<h1>Low-voltage DC wiring: size, drop, fuses, safety</h1>
+<p class="meta">9DC Editorial · Updated October 2026 · 8 min read</p>
+<p class="lead">"It's only 12 volts" is how DC fires start. Low voltage means high current for the same power, and a lithium battery can deliver enormous current into a fault. Good wiring comes down to three numbers: ampacity, voltage drop and fuse rating.</p>
+
+<h2 id="why">Why low voltage needs thick cable</h2>
+<p>Power equals volts times amps. A 1,200 W inverter draws about 100 A at 12 V, 50 A at 24 V and 25 A at 48 V. Heat in a cable is proportional to the <em>square</em> of current (I²R), so halving current cuts cable heating to a quarter. That is why bigger systems move to 24 or 48 V.</p>
+
+<h2 id="ampacity">1. Ampacity: will the cable overheat?</h2>
+<p>Every conductor has a maximum continuous current it can carry without exceeding its insulation temperature. Ampacity depends on conductor size, insulation rating, bundling and ambient temperature. A common practice for continuous DC loads is to size for 125% of the expected current. Engine bays, enclosed conduits and hot climates need further derating.</p>
+
+<h2 id="drop">2. Voltage drop: will the device get enough volts?</h2>
+<p>Even a cable that is cool can waste voltage over distance. DC current travels out <em>and back</em>, so the round-trip length counts. Common targets:</p>
+<ul><li><strong>≤ 3%</strong> for most circuits, including inverter and charger cables</li><li><strong>≤ 2%</strong> for battery charging and sensitive electronics</li><li><strong>up to 5%</strong> for lighting and non-critical loads</li></ul>
+<p>The formula our <a href="/tools.html#t-wire">wire gauge calculator</a> uses is: required circular mils = 2 × K × I × L ÷ allowed volts drop, where K is about 12.9 for copper and 21.2 for aluminium, I is amps and L is the one-way length in feet. It then also checks ampacity and picks the larger of the two results.</p>
+
+<h2 id="fuses">3. Fuses and breakers: protect the wire</h2>
+<p>A fuse protects the <em>cable</em> from overheating in a fault. Rules of thumb:</p>
+<ol><li>Rate the fuse at or below the cable's ampacity and at or above about 125% of the normal load.</li><li>Place it as close as practical to the source — the battery positive terminal — commonly within about 7 in / 18 cm.</li><li>Use a fuse with an interrupt rating high enough for your battery's possible short-circuit current. Large lithium banks often need Class T fuses.</li><li>Fuse every branch where the conductor gets smaller.</li></ol>
+
+<h2 id="mistakes">The ten most common mistakes</h2>
+<ol><li>No main fuse at the battery.</li><li>Sizing cable for current but ignoring a long run's voltage drop.</li><li>Using solid household wire in vehicles where vibration demands stranded cable.</li><li>Poor crimps — use the right lug, crimper and heat-shrink.</li><li>Unequal cable lengths in a parallel battery bank.</li><li>Missing or undersized negative/ground conductors.</li><li>Mixing AC and DC breakers — DC needs DC-rated protection.</li><li>Ignoring PV string voltages, which can exceed 400 V DC in residential arrays.</li><li>No disconnect for servicing.</li><li>Working live — always isolate the battery first.</li></ol>
+
+<div class="callout warn"><b>Professional work required:</b> rooftop solar strings, EV chargers and anything connected to a building's mains wiring operate at dangerous voltages and are usually regulated. Use a licensed electrician and follow local code (for example the NEC in the US, CEC in Canada, BS 7671 in the UK, IS/IEC standards in India).</div>
+</article>
+<aside class="aside-sticky">
+<div class="card toc"><h4>On this page</h4><a href="#why">Why thick cable</a><a href="#ampacity">Ampacity</a><a href="#drop">Voltage drop</a><a href="#fuses">Fuses</a><a href="#mistakes">Mistakes</a></div>
+<div class="card"><h3>Size a cable</h3><a class="btn btn-primary btn-sm btn-block" style="margin-top:12px" href="/tools.html#t-wire">Wire gauge calculator</a></div>
+</aside>
+</div></section>

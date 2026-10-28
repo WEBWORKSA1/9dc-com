@@ -1,0 +1,50 @@
+---
+layout: default
+title: "LiFePO4 Batteries: The Practical Buyer's Guide | 9DC"
+description: "LiFePO4 (lithium iron phosphate) explained: voltage, usable capacity, cycle life, cold-charging limits, BMS features and how they compare with lead-acid and NMC lithium."
+schema: '{"@context":"https://schema.org","@type":"Article","headline":"LiFePO4 Batteries: The Practical Buyer’s Guide","author":{"@type":"Organization","name":"9DC Editorial"},"publisher":{"@type":"Organization","name":"9DC"},"datePublished":"2026-10-28"}'
+---
+
+<section style="padding-top:44px"><div class="wrap article">
+<article class="prose">
+<div class="crumbs"><a href="/index.html">Home</a> / <a href="/guides/index.html">Guides</a> / LiFePO4</div>
+<span class="tag batt">Battery</span>
+<h1>LiFePO4 batteries: the practical buyer's guide</h1>
+<p class="meta">9DC Editorial · Updated October 2026 · 9 min read</p>
+<p class="lead">Lithium iron phosphate (LiFePO4 or LFP) has become the default chemistry for RVs, vans, boats, off-grid homes, power stations and a growing share of EVs. It trades a little energy density for long life, thermal stability and usable capacity that lead-acid cannot match.</p>
+
+<h2 id="numbers">The numbers that matter</h2>
+<table><thead><tr><th>Property</th><th>LiFePO4</th><th>AGM lead-acid</th><th>NMC lithium</th></tr></thead><tbody>
+<tr><td>Nominal cell voltage</td><td>3.2 V (12.8 V for 4 cells)</td><td>2.0 V (12 V for 6 cells)</td><td>~3.6–3.7 V</td></tr>
+<tr><td>Practical usable depth</td><td>80–100% (we default to 90%)</td><td>~50% for good life</td><td>~80–90%</td></tr>
+<tr><td>Typical cycle life</td><td>Thousands of cycles</td><td>Hundreds of cycles</td><td>Around 1,000–2,000</td></tr>
+<tr><td>Weight for same usable energy</td><td>Light</td><td>Heavy (2–3×)</td><td>Lightest</td></tr>
+<tr><td>Thermal stability</td><td>Very good</td><td>Good</td><td>Moderate</td></tr>
+<tr><td>Charging below 0 °C</td><td>Not allowed without heating</td><td>Allowed (slower)</td><td>Not recommended</td></tr>
+</tbody></table>
+<p>Cycle-life claims depend heavily on depth of discharge, temperature and charge rate; compare warranties in years <em>and</em> cycles or MWh throughput.</p>
+
+<h2 id="voltage">Voltage and state of charge</h2>
+<p>LiFePO4 has a very flat voltage curve: a 12.8 V battery sits around 13.2–13.3 V for most of its range. That makes voltage a poor fuel gauge. Use a shunt-based battery monitor or the BMS's Bluetooth readout to track state of charge in amp-hours or percent.</p>
+<p>Typical charge settings for a 12.8 V pack are around 14.2–14.6 V absorption with a low or no float. Always follow the battery maker's specification sheet — not a generic preset on your charger.</p>
+
+<h2 id="bms">What the BMS does</h2>
+<p>Every lithium battery needs a battery management system. A good BMS protects against over-voltage, under-voltage, over-current, short circuit and temperature extremes, and balances cells so they stay matched. When comparing batteries, look for:</p>
+<ul><li>Continuous and peak current ratings that exceed your inverter's draw</li><li>Low-temperature charge cut-off, or a built-in heater for cold climates</li><li>Communication (CAN/RS485/Bluetooth) if your inverter can use it</li><li>Clear limits on how many batteries can be connected in series or parallel</li></ul>
+
+<h2 id="sizing">Sizing a bank</h2>
+<p>Add up daily watt-hours, multiply by the days of autonomy you want, divide by inverter efficiency and usable depth of discharge. Our <a href="/tools.html#t-bank">battery bank sizer</a> does this and warns you when your system voltage is too low for the current involved. For a portable power station, use the <a href="/tools.html#t-run">runtime calculator</a>.</p>
+
+<h2 id="series-parallel">Series, parallel and system voltage</h2>
+<p>Batteries in <strong>series</strong> add voltage (two 12.8 V make 25.6 V); in <strong>parallel</strong> they add capacity. Higher system voltage reduces current, cable size and losses — a 3,000 W inverter draws about 250 A at 12 V but about 63 A at 48 V. Read <a href="/guides/choose-12v-24v-48v.html">12 V vs 24 V vs 48 V</a> before buying.</p>
+
+<h2 id="safety">Installation and safety</h2>
+<ul><li>Fuse the positive conductor as close to the battery as possible with a fuse rated for the battery's short-circuit current (Class T is common on larger lithium banks).</li><li>Torque terminals to the manufacturer's specification; loose lugs cause heat.</li><li>Keep cable lengths in a parallel bank equal so batteries share current evenly.</li><li>Mount securely in vehicles and boats; keep away from ignition sources and water.</li></ul>
+<div class="callout warn"><b>Note:</b> this guide is general information. Large battery systems, especially those connected to a home's wiring, may require permits and a licensed installer where you live.</div>
+</article>
+<aside class="aside-sticky">
+<div class="card toc"><h4>On this page</h4><a href="#numbers">Key numbers</a><a href="#voltage">Voltage &amp; SoC</a><a href="#bms">BMS</a><a href="#sizing">Sizing</a><a href="#series-parallel">Series/parallel</a><a href="#safety">Safety</a></div>
+<div class="card"><h3>Size your bank</h3><a class="btn btn-primary btn-sm btn-block" style="margin-top:12px" href="/tools.html#t-bank">Battery bank sizer</a></div>
+<div class="card"><h3>Want it installed?</h3><a class="btn btn-ghost btn-sm btn-block" style="margin-top:12px" href="/get-quote.html?type=battery">Battery quotes</a></div>
+</aside>
+</div></section>
